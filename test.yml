@@ -1,0 +1,17 @@
+name: Wasim
+age: 38
+address: "Gotffried"
+active: true
+key:
+    key1: value
+    key2: 33
+array:
+    - item1
+    - item2
+    - { key: value }
+jsonArray: [item1, item2]
+objectArray:
+    - key: value
+      key2: value
+    - key: value
+      key2: value
