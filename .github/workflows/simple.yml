@@ -16,5 +16,5 @@ jobs:
           echo "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs"
           echo "echo ${{ github.job }}"
       - name: Output Current Job Log URL
-        run: echo ${{ steps.jobs.outputs.html_url }}
+        run: echo ${{ github.job.outputs.html_url }}
 
