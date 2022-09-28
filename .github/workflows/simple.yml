@@ -13,7 +13,7 @@ jobs:
           node -v
           java -version
           npm -v
-          echo "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs"
+          echo "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/logs"
           echo "echo ${{ github.job }}"
       - name: Output Current Job Log URL
         run: echo ${{ github.job.name }}
