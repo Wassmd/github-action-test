@@ -7,9 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: echo a string
-        run: eccho "Hello World!"
+        run: echo "Hello World!"
       - name: multiline script
         run: |
           node -v
           java -version
           npm -v
+          echo "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs/${{ github.job_id }}"
