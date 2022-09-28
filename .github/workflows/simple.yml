@@ -14,3 +14,4 @@ jobs:
           java -version
           npm -v
           echo "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs/${{ github.job_id }}"
+          echo "https://github.com/${{ github.repository }}/actions/jobs/{job_id}/logs"
