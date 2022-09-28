@@ -14,4 +14,7 @@ jobs:
           java -version
           npm -v
           echo "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs"
-          echo "        * ${{ steps.jobs.outputs.html_url }}" | tee -a tmp.md
+          echo "echo ${{ github.job }}"
+      - name: Output Current Job Log URL
+        run: echo ${{ steps.jobs.outputs.html_url }}
+
