@@ -5,6 +5,7 @@ on: push
 jobs:
   run-shell-commands:
     runs-on: ubuntu-latest
+    
     steps:
       - name: echo a string
         run: echo "Hello World!"
@@ -16,5 +17,18 @@ jobs:
           echo "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/logs"
           echo "echo ${{ github.job }}"
       - name: Output Current Job Log URL
-        run: echo ${{ github.job.name }}
+        uses: actions/github-script@v6
+        id: job-url
+        with:
+          script: |
+              const { data } = await github.rest.actions.listJobsForWorkflowRunAttempt({
+                ...context.repo,
+                run_id: context.runId,
+                attempt_number: process.env.GITHUB_RUN_ATTEMPT,
+              });
 
+              return data.jobs[0].html_url
+          result-encoding: string
+      - name: Print Log URL
+        run: |
+          echo "Log URL: ${{ steps.job-url.outputs.result }}"
